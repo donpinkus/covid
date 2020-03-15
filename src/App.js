@@ -173,8 +173,15 @@ const StatHeader = ({ selectedCountry }) => {
       </S.StatColumn>
       <S.StatColumn style={{ marginLeft: 20 }}>
         <S.StatHeader style={{ textAlign: 'left' }}>Mortality</S.StatHeader>
-        <S.Stat><S.Number style={{ textAlign: 'left' }}>{mLag1}%</S.Number></S.Stat>
-        <div style={{ fontSize: 12, maxWidth: 220 }}>Mortality rate has <span style={{ fontWeight: 600 }}>{mLag1 > mLag2 ? "increased" : "decreased"} {mortalityChangeNumeric}%</span> since previous day</div>
+        {deaths.total > 0 && 
+          <>
+            <S.Stat><S.Number style={{ textAlign: 'left' }}>{mLag1}%</S.Number></S.Stat>
+            <div style={{ fontSize: 12, maxWidth: 220 }}>Mortality rate has <span style={{ fontWeight: 600 }}>{mLag1 > mLag2 ? "increased" : "decreased"} {mortalityChangeNumeric}%</span> since previous day</div>
+          </>
+        }
+        {deaths.total == 0 && 
+          <div>No deaths reported.</div>
+        }
       </S.StatColumn>
     </S.StatRow>
   );
