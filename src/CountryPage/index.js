@@ -50,6 +50,13 @@ S.AboutArticle = styled.div`
   color: white;
 `;
 
+S.Footer = styled.div`
+  background: #262626;
+  padding: 60px 30px;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+`;
+
 S.Link = styled.a`
   text-decoration: none;
   color: #44adec;
@@ -100,17 +107,29 @@ const CountryPage = () => {
           <div style={{ marginTop: 60 }} />
         </section>
 
-        <section>
-          <div style={{ marginTop: 60 }} />
+      <section>
+        <div style={{ marginTop: 60 }} />
 
-          <S.Center>
-            <S.Title>Where is corona virus getting worse?</S.Title>
-          </S.Center>
+        <S.Center>
+          <S.Title>Where is corona virus getting worse?</S.Title>
+        </S.Center>
 
-          <div style={{ maxWidth: 800, border: "1px solid rgba(0,0,0,0.1", margin: "20px auto 0" }}>
-            <WorldMap />
-          </div>
-        </section>
+        <div style={{ maxWidth: 800, border: "1px solid rgba(0,0,0,0.1", margin: "20px auto 0" }}>
+          <WorldMap />
+        </div>
+      </section>
+
+      <div style={{ marginTop: 60 }} />
+
+      <S.Footer>
+        <div>
+          All data is sourced directly from the World Health Organization, and is freely available <S.Link href="https://ourworldindata.org/coronavirus-source-data">here</S.Link>.
+        </div>
+        <br/>
+        <div>
+          This is a work in progress - all feedback or help is welcome. <br/> Contact me at don.pinkus@gmail.com or <S.Link href="https://twitter.com/whatsdonisdon">here</S.Link>.
+        </div>
+      </S.Footer>
     </S.Page>
   );
 }
