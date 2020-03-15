@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CountrySelect() {
+export default function CountrySelect({ onChange }) {
   const classes = useStyles();
 
   return (
@@ -41,8 +41,10 @@ export default function CountrySelect() {
           {option.label}
         </React.Fragment>
       )}
+      defaultValue={{ code: 'US', label: 'United States', phone: '1', suggested: true }}
       onChange={(event, value, reason) => {
-        console.log(value);
+        // When no input is entered, value will be null.
+        onChange(value && value.label);
       }}
       renderInput={params => (
         <TextField
