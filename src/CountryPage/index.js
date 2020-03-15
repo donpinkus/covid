@@ -127,7 +127,11 @@ const CountryPage = () => {
         </div>
         <br/>
         <div>
-          This is a work in progress - all feedback or help is welcome. <br/> Contact me at don.pinkus@gmail.com or <S.Link href="https://twitter.com/whatsdonisdon">here</S.Link>.
+          This is a work in progress - all feedback or help is welcome.
+        </div>
+        <br/>
+        <div>
+          Contact me at don.pinkus@gmail.com or <S.Link href="https://twitter.com/whatsdonisdon">here</S.Link>.
         </div>
       </S.Footer>
     </S.Page>
