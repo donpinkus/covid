@@ -86,7 +86,7 @@ const CountryPage = () => {
       <section style={{ borderBottom: "1px solid rgba(0,0,0,0.15)" }}>
         <div style={{ marginTop: 60 }} />
           <S.Center>
-            <S.Title>How bad is corona virus in</S.Title> <CountrySelect onChange={onCountryChange} />
+            <S.Title>COVID-19 statistics in </S.Title> <CountrySelect onChange={onCountryChange} />
           </S.Center>
 
           <div style={{ marginTop: 60 }} />
