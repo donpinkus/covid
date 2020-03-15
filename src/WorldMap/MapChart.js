@@ -61,7 +61,6 @@ const MapChart = ({ setTooltipContent, onCountryClick }) => {
           <Geographies geography={Geo}>
             {({ geographies }) =>
               geographies.map(geo => {
-                console.log('geo', geo);
                 
                 
                 const data = _.filter(diseaseData, { location: geo.properties.NAME_LONG });
@@ -70,8 +69,6 @@ const MapChart = ({ setTooltipContent, onCountryClick }) => {
                 if (data.length > 2 && data[data.length - 1].total_cases && data[data.length - 2].total_cases) {
                   growthRate = (data[data.length - 1].new_cases / data[data.length - 1].total_cases);
                 }
-
-                console.log('data', geo.properties.NAME, growthRate, data);
 
                 return (
                   <Geography

@@ -1,10 +1,10 @@
 import React from 'react';
-import CountryPage from './CountryPage';
+import MainPage from './MainPage';
 
 const App = () => { 
 
   return (
-    <CountryPage />
+    <MainPage />
   )
 }
 
