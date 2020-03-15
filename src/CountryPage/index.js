@@ -127,11 +127,7 @@ const CountryPage = () => {
         </div>
         <br/>
         <div>
-          This is a work in progress - all feedback or help is welcome.
-        </div>
-        <br/>
-        <div>
-          Contact me <S.Link href="mailto:don.pinkus@gmail.com">here</S.Link>.
+          This is a work in progress - all feedback or help is welcome. Contact me <S.Link href="mailto:don.pinkus@gmail.com">here</S.Link>.
         </div>
       </S.Footer>
     </S.Page>
