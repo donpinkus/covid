@@ -24,7 +24,6 @@ const FONT_SIZES = {
 const S = {};
 
 S.Page = styled.div`
-  padding: 60px 30px;
 `;
 
 S.Center = styled.div`
@@ -42,11 +41,11 @@ S.Title = styled.div`
 S.AboutArticle = styled.div`
   font-size: 20px;
   font-weight: 300;
-  max-width: 800px;
-  margin: 10px auto 0;
   color: ${FONT_COLORS.light};
   text-align: center;
   line-height: 28px;
+  padding: 60px 30px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 `;
 
 S.Link = styled.a`
@@ -67,38 +66,47 @@ const CountryPage = () => {
 
   return (
     <S.Page>
-      <S.Center>
-        <S.Title>How bad is corona virus in</S.Title> <CountrySelect onChange={onCountryChange} />
-      </S.Center>
-
       <S.AboutArticle>
-        The purpose of this report is to educate people, and give a realistic expectation of COVID-19 based on the latest data from the <S.Link href="#">World Health Organization</S.Link>.
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          The purpose of this report is to educate people, and give a realistic expectation of COVID-19 based on the latest data from the <S.Link href="#">World Health Organization</S.Link>.
+        </div>
       </S.AboutArticle>
 
-      <div style={{ marginTop: 60 }} />
+      <section style={{ borderBottom: "1px solid rgba(0,0,0,0.15)" }}>
+        <div style={{ marginTop: 60 }} />
+          <S.Center>
+            <S.Title>How bad is corona virus in</S.Title> <CountrySelect onChange={onCountryChange} />
+          </S.Center>
 
-      {selectedCountry && !isDataAvailable &&
-        <div style={{ textAlign: 'center', fontWeight: 600 }}>{selectedCountry} has not reported any cases of COVID-19.</div>
-      }
-      {isDataAvailable && 
-        <>
-          <StatHeader selectedCountry={selectedCountry} />
+          <div style={{ marginTop: 60 }} />
 
-          <div style={{ marginTop: 20 }} />
-          
-          <CountryChart selectedCountry={selectedCountry} />
-        </>
-      }
+          {selectedCountry && !isDataAvailable &&
+            <div style={{ textAlign: 'center', fontWeight: 600 }}>{selectedCountry} has not reported any cases of COVID-19.</div>
+          }
+          {isDataAvailable && 
+            <>
+              <StatHeader selectedCountry={selectedCountry} />
 
-      <div style={{ marginTop: 90 }} />
+              <div style={{ marginTop: 20 }} />
+              
+              <CountryChart selectedCountry={selectedCountry} />
+            </>
+          }
 
-      <S.Center>
-        <S.Title>Where is corona virus getting worse?</S.Title>
-      </S.Center>
+          <div style={{ marginTop: 60 }} />
+        </section>
 
-      <div style={{ maxWidth: 800, border: "1px solid rgba(0,0,0,0.1", margin: "20px auto 0" }}>
-        <WorldMap />
-      </div>
+        <section>
+          <div style={{ marginTop: 60 }} />
+
+          <S.Center>
+            <S.Title>Where is corona virus getting worse?</S.Title>
+          </S.Center>
+
+          <div style={{ maxWidth: 800, border: "1px solid rgba(0,0,0,0.1", margin: "20px auto 0" }}>
+            <WorldMap />
+          </div>
+        </section>
     </S.Page>
   );
 }
