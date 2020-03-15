@@ -71,7 +71,8 @@ const CountryPage = () => {
     <S.Page>
       <S.AboutArticle>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          The purpose of this report is to educate people, and give a realistic expectation of COVID-19 based on the latest data from the <S.Link href="#">World Health Organization</S.Link>.
+          <div>The purpose of this report is to educate people, and give a realistic expectation of COVID-19 based on the latest data from the <S.Link href="#">World Health Organization</S.Link>.</div>
+          <div style={{ fontSize: 14, marginTop: 20, opacity: 0.6 }}>Last updated Saturday March 14, 2020 at 12:00am</div>
         </div>
       </S.AboutArticle>
 
