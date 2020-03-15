@@ -3,12 +3,12 @@ import ReactTooltip from 'react-tooltip';
 
 import MapChart from "./MapChart";
 
-function WorldMap() {
+const WorldMap = ({ onCountryClick }) => {
   const [content, setContent] = useState("");
-  
+
   return (
     <div>
-      <MapChart setTooltipContent={setContent} />
+      <MapChart setTooltipContent={setContent} onCountryClick={onCountryClick} />
       {
         content && 
         <ReactTooltip>

@@ -86,13 +86,13 @@ const CountryPage = () => {
       <section style={{ borderBottom: "1px solid rgba(0,0,0,0.15)" }}>
         <div style={{ marginTop: 60 }} />
           <S.Center>
-            <S.Title>COVID-19 statistics in </S.Title> <CountrySelect onChange={onCountryChange} />
+            <S.Title>COVID-19 statistics in </S.Title> <CountrySelect onChange={onCountryChange} value={selectedCountry} />
           </S.Center>
 
           <div style={{ marginTop: 60 }} />
 
           {selectedCountry && !isDataAvailable &&
-            <div style={{ textAlign: 'center', fontWeight: 600 }}>{selectedCountry} has not reported any cases of COVID-19.</div>
+            <div style={{ textAlign: 'center', fontWeight: 600, height: 407, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>{selectedCountry} has not reported any cases of COVID-19.</div>
           }
           {isDataAvailable && 
             <>
@@ -115,7 +115,7 @@ const CountryPage = () => {
         </S.Center>
 
         <div style={{ maxWidth: 800, border: "1px solid rgba(0,0,0,0.1", margin: "20px auto 0" }}>
-          <WorldMap />
+          <WorldMap onCountryClick={(countryName) => { setSelectedCountry(countryName) }} />
         </div>
       </section>
 
@@ -214,7 +214,7 @@ const StatHeader = ({ selectedCountry }) => {
         <S.StatHeader style={{ textAlign: 'left' }}>Mortality</S.StatHeader>
         {deaths.total > 0 && 
           <>
-            <S.Stat><S.Number style={{ textAlign: 'left' }}>{mLag1}%</S.Number></S.Stat>
+            <S.Stat><S.Number style={{ textAlign: 'left' }}>{Math.round(deaths.total / cases.total * 1000) / 10}%</S.Number></S.Stat>
             <div style={{ fontSize: 12, maxWidth: 220 }}>Mortality rate has <span style={{ fontWeight: 600 }}>{mLag1 > mLag2 ? "increased" : "decreased"} {mortalityChangeNumeric}%</span> since previous day</div>
           </>
         }

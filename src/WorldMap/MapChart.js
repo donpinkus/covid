@@ -53,7 +53,7 @@ const colorScale = d3.scaleLinear()
   .domain([0, 1])
   .range(["#ffedea", "#C70E20"]);
 
-const MapChart = ({ setTooltipContent }) => {
+const MapChart = ({ setTooltipContent, onCountryClick }) => {
   return (
     <>
       <ComposableMap data-tip="" projectionConfig={{ scale: 200 }}>
@@ -77,6 +77,9 @@ const MapChart = ({ setTooltipContent }) => {
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
+                    onClick={() => {
+                      onCountryClick(geo.properties.NAME_LONG);
+                    }}
                     onMouseEnter={() => {
                       const { NAME_LONG } = geo.properties;
                       setTooltipContent({

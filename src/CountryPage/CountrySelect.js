@@ -1,5 +1,6 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
+import _ from "lodash";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { makeStyles } from '@material-ui/core/styles';
@@ -22,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CountrySelect({ onChange }) {
+export default function CountrySelect({ onChange, value }) {
   const classes = useStyles();
 
   return (
@@ -33,6 +34,7 @@ export default function CountrySelect({ onChange }) {
       classes={{
         option: classes.option,
       }}
+      value={_.find(countries, { label: value })}
       autoHighlight
       getOptionLabel={option => option.label}
       renderOption={option => (
