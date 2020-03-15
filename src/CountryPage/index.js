@@ -46,10 +46,13 @@ S.AboutArticle = styled.div`
   line-height: 28px;
   padding: 60px 30px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
+  background: #262626;
+  color: white;
 `;
 
 S.Link = styled.a`
   text-decoration: none;
+  color: #44adec;
 `;
 
 const CountryPage = () => {
