@@ -235,6 +235,7 @@ S.Bars = styled.div`
   display: flex;
   align-items: flex-end;
   height: 200px;
+  border-bottom: 1px solid #e6e6e6;
 `;
 
 S.Bar = styled.div`
