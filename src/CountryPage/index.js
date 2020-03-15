@@ -131,7 +131,7 @@ const CountryPage = () => {
         </div>
         <br/>
         <div>
-          Contact me at don.pinkus@gmail.com or <S.Link href="https://twitter.com/whatsdonisdon">here</S.Link>.
+          Contact me <S.Link href="mailto:don.pinkus@gmail.com">here</S.Link>.
         </div>
       </S.Footer>
     </S.Page>
