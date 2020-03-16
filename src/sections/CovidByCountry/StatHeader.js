@@ -31,7 +31,7 @@ S.Stat = styled.div`
 
 S.Number = styled.div`
   width: 90px;
-  font-size: 30px;
+  font-size: 20px;
   text-align: right;
   margin-right: 10px;
 `;

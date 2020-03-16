@@ -7,6 +7,8 @@ import dateAndCountryDataRaw from "./DateAndCountryData.json";
 import CovidByCountry from "./sections/CovidByCountry";
 
 import WorldMap from "./WorldMap";
+import LineChart from "./sections/World/LineChart";
+import { Line } from 'react-simple-maps';
 
 const dateAndCountryData = dateAndCountryDataRaw.map(d => ({
   ...d,
@@ -45,10 +47,8 @@ S.AboutArticle = styled.div`
   color: ${FONT_COLORS.light};
   text-align: center;
   line-height: 28px;
-  padding: 60px 30px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  background: #262626;
-  color: white;
+  padding: 30px 30px 0px;
+  color: rgba(0,0,0,0.8);
 `;
 
 S.Footer = styled.div`
@@ -61,6 +61,20 @@ S.Footer = styled.div`
 S.Link = styled.a`
   text-decoration: none;
   color: #44adec;
+`;
+
+S.SubTitle = styled.div`
+  font-size: 17;
+  font-weight: 600;
+  text-align: center;
+`;
+
+S.Section = styled.div`
+  margin: 60px auto 0;
+  background: white;
+  box-shadow: 0px 5px 8px rgba(0,0,0,0.02);
+  border: 1px solid gainsboro;
+  max-width: 1000px;
 `;
 
 const MainPage = () => {
@@ -79,6 +93,7 @@ const MainPage = () => {
 
   return (
     <S.Page>
+      <div style={{ fontSize: 30, textAlign: 'center', paddingTop: 60 }}>COVID-19 Summary</div>
       <S.AboutArticle>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <div>The purpose of this report is to educate people, and give a realistic expectation of COVID-19 based on the latest data from the <S.Link href="#">World Health Organization</S.Link>.</div>
@@ -88,17 +103,32 @@ const MainPage = () => {
 
       <CovidByCountry onCountryChange={onCountryChange} selectedCountry={selectedCountry} />
 
-      <section>
+      <S.Section>
         <div style={{ marginTop: 60 }} />
 
         <S.Center>
-          <S.Title>Where is corona virus getting worse?</S.Title>
+          <S.Title>Where is COVID-19 getting worse?</S.Title>
         </S.Center>
 
-        <div style={{ maxWidth: 800, border: "1px solid rgba(0,0,0,0.1", margin: "20px auto 0" }}>
+        <div style={{ marginTop: 20 }} />
+
+        <S.SubTitle style={{ marginBottom: 10 }}>
+          Countries where total cases are increasing
+        </S.SubTitle>
+
+        <div style={{ maxWidth: 800,  margin: "0 auto 0" }}>
           <WorldMap onCountryClick={(countryName) => { setSelectedCountry(countryName) }} />
         </div>
-      </section>
+
+        <div style={{ marginTop: 40 }} />
+
+        <div>
+          <S.SubTitle>How quickly are total cases increasing?</S.SubTitle>
+        </div>
+
+        <LineChart />
+
+      </S.Section>
 
       <div style={{ marginTop: 60 }} />
 

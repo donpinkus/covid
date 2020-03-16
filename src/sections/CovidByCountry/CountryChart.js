@@ -78,6 +78,7 @@ const CountryChart = ({ selectedCountry }) => {
 
   return (
     <S.Chart>
+      <div style={{ fontSize: 17, fontWeight: 600, textAlign: 'center', marginBottom: 10 }}>Total cases and deaths by day</div>
       <S.Bars>
         {data.map(d => (
           <S.Bar key={d.date}>

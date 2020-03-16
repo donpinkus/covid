@@ -22,6 +22,14 @@ S.Title = styled.div`
   margin-right: 10px;
 `;
 
+S.Section = styled.div`
+  margin: 60px auto 0;
+  background: white;
+  box-shadow: 0px 5px 8px rgba(0,0,0,0.02);
+  border: 1px solid gainsboro;
+  max-width: 1000px;
+`;
+
 const dateAndCountryData = dateAndCountryDataRaw.map(d => ({
   ...d,
   "date": new Date(d.date)
@@ -32,7 +40,7 @@ const CovidByCountry = ({ onCountryChange, selectedCountry }) => {
   const isDataAvailable = data.length > 0;
 
   return (
-    <section style={{ borderBottom: "1px solid rgba(0,0,0,0.15)" }}>
+    <S.Section>
       <div style={{ marginTop: 60 }} />
         <S.Center>
           <S.Title>COVID-19 statistics in </S.Title> <CountrySelect onChange={onCountryChange} value={selectedCountry} />
@@ -47,14 +55,14 @@ const CovidByCountry = ({ onCountryChange, selectedCountry }) => {
           <>
             <StatHeader selectedCountry={selectedCountry} />
 
-            <div style={{ marginTop: 20 }} />
+            <div style={{ marginTop: 60 }} />
             
             <CountryChart selectedCountry={selectedCountry} />
           </>
         }
 
       <div style={{ marginTop: 60 }} />
-    </section>
+    </S.Section>
   );
 }
 
